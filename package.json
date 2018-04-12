@@ -10,7 +10,8 @@
     "url": "marcel.wiehle.me"
   },
   "files": [
-    "index.js"
+    "index.js",
+    "index.d.ts"
   ],
   "scripts": {
     "test": "xo"
