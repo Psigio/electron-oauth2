@@ -12,17 +12,24 @@ declare namespace oauth2 {
         tokenUrl: string,
         useBasicAuthorizationHeader: boolean,
     }
-    export interface IOauthOptions {
+    export interface IAuthorizationCodeOptions {
         scope?: string,
         accessType?: string,
     }
-    export interface IAccessTokenResponse {
-        access_token: string
+    export interface IGetAccessTokenOptions extends IAuthorizationCodeOptions {
+        additionalTokenRequestData?: any
+    }
+    export interface IAccessToken {
+        access_token: string,
         expires_in: number,
-        refresh_token: string
         token_type: string,
     }
+    export interface IAccessTokenWithRefreshToken extends IAccessToken {
+        refresh_token: string,
+    }
     export interface IOauth {
-        getAccessToken: (opts?: IOauthOptions) => Promise<IAccessTokenResponse>;
+        getAccessToken: (opts?: IGetAccessTokenOptions) => Promise<IAccessTokenWithRefreshToken>;
+        getAuthorizationCode: (opts?: IAuthorizationCodeOptions) => Promise<string>;
+        refreshToken: (refreshToken: string) => Promise<IAccessToken>;
     }
 }
