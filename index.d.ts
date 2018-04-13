@@ -17,7 +17,8 @@ declare namespace oauth2 {
         accessType?: string,
     }
     export interface IGetAccessTokenOptions extends IAuthorizationCodeOptions {
-        additionalTokenRequestData?: any
+        additionalTokenRequestData?: any,
+        existingAuthorizationCode?: string,
     }
     export interface IAccessToken {
         access_token: string,
