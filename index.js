@@ -111,7 +111,7 @@ module.exports = function (config, windowParams) {
           return _getAccessTokenImpl(authorizationCode, opts);
         });
     } else {
-      return _getAccessTokenImpl(opts.authorizationCode, opts)
+      return _getAccessTokenImpl(opts.existingAuthorizationCode, opts)
     }
   }
 
